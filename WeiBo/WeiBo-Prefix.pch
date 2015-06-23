@@ -1,0 +1,35 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Extension.h"
+#import "UITextView+Extension.h"
+#import "Const.h"
+
+#ifdef DEBUG // 处于开发阶段
+#define WBLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define WBLog(...)
+#endif
+
+// RGB颜色
+#define WBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+// 随机颜色
+#define WBRandomColor WBColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+#endif
